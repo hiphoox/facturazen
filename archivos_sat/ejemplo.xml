@@ -1,0 +1,143 @@
+<?xml version="1.0"
+    encoding="UTF-8"?>
+ 
+<Comprobante xmlns="http://www.sat.gob.mx/cfd/2"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.sat.gob.mx/cfd/2 http://www.sat.gob.mx/sitio_internet/cfd/2/cfdv2.xsd"
+    version="2.0"
+    serie="FAXA"
+    folio="051661"
+    fecha="2006-11-20T08:50:48"
+    sello="wVLpmRWPFxC6UzitqsdZkljtcYA8ESYPg21Tx0P3p8EAvmIUOSb8OqDw0d+RPswU2BTN77rzygmOvS5O3L6kv4q8u9Yg04b1CjOUbo+YggrJgxUsG3ymMOl4eh/JQ1utNzwJk44ZBeTnWldT4Hm5V5ThKW5yXlc/udV61PnSzIo="
+    noAprobacion="2951"
+    anoAprobacion="2006"
+    tipoDeComprobante="ingreso"
+    formaDePago="EL PAGO DE ESTA FACTURA (CONTRAPRESTACION) SE EFECTUARA EN UNA SOLA EXHIBICION, SI POR ALGUNA RAZON NO FUERA ASI, EMITIREMOS LOS COMPROBANTES DE LAS PARCIALIDADES RESPECTIVAS"
+    noCertificado="00001000000000823747"
+    certificado="MIIEeTCCA2GgAwIBAgIUMDAwMDEwMDAwMDAwMDA4MjM3NDcwDQYJKoZIhvcNAQEFBQAwggGKMS8wLQYDVQQKDCZTZXJ2aWNpbyBkZSBBZG1pbmlzdHJhY2nDs24gVHJpYnV0YXJpYTE4MDYGA1UECwwvQWRtaW5pc3RyYWNpw7NuIGRlIFNlZ3VyaWRhZCBkZSBsYSBJbmZvcm1hY2nDs24xODA2BgNVBAMML0EuQy4gZGVsIFNlcnZpY2lvIGRlIEFkbWluaXN0cmFjacOzbiBUcmlidXRhcmlhMSYwJAYDVQQQEx1Bdi4gSGlkYWxnbyA3NywgQ29sLiBHdWVycmVybzEOMAwGA1UEERMFMDYzMDAxEjAQBgNVBAcMCUNveW9hY8OhbjEZMBcGA1UECBMQRGlzdHJpdG8gRmVkZXJhbDELMAkGA1UEBhMCTVgxFTATBgNVBC0TDFNBVDk3MDcwMU5OMzEhMB8GCSqGSIb3DQEJARYSYXNpc25ldEBzYXQuZ29iLm14MTUwMwYJKoZIhvcNAQkCEyZSZXNwb25zYWJsZTogQ2VzYXIgTHVpcyBQZXJhbGVzIFRlbGxlejAeFw0wNjA5MDgxMzQwMjFaFw0wODA5MDcxMzQwMjFaMIHFMSUwIwYDVQQtExxGSkM3ODAzMTVFOTEgLyBBRUJSNDIwMTE5Mk44MR4wHAYDVQQFExUgLyBBRUJSNDIwMTE5SERGTlJEMDkxIjAgBgNVBAoTGUZBQiBKQUJPTiBDT1JPTkEgU0EgREUgQ1YxEDAOBgNVBAsTB2dlbmVyYWwxIjAgBgNVBAMTGUZBQiBKQUJPTiBDT1JPTkEgU0EgREUgQ1YxIjAgBgNVBCkTGUZBQiBKQUJPTiBDT1JPTkEgU0EgREUgQ1YwgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAOx6usU1zIZTEKYRVxfZBUjvQcB9sVtLgrgAGDDL6K3vpExpl6/Q8g+fT+UTlLveg7JVheQamsQTZhMTUGnny4OTGpfdSn5SPnvCchBqq7gEGXi26jjwOrs3PO0mSIa6VweMCPPKFQ56RYaJ18kpiNgWUdl9yivh/SO5godmWZOpAgMBAAGjHTAbMAwGA1UdEwEB/wQCMAAwCwYDVR0PBAQDAgbAMA0GCSqGSIb3DQEBBQUAA4IBAQDDAzYjTyHcYXjPzXIPfUtHizC8G/XjeOvcdScS/rsxHVbbusuKpAS8hK5hjT00GXKjB5u7NEkNEOJiOgZl08mk5FKuKqqXUbGB35atKdDMEMhN56RMbYump9tJJ8JQlbvuMywiL2J3GpO9wSdZ044Z37Szv5bE3/G8oM4/kz7rhsOrsVAFwodfIvHYDZmRQlYqPV5B7X8AzhUmehJ8rg3faJfjQLhVRgsCt27HCLIzLXYKRPSLNg0X1mxi745Ailxwk7nO7HIEN7coXdaMbkczFD4Fhe9aaskyj9mMwo/XASLiQb5PlBqE2uLQITUUbU5w4P32wlZGMqX4XxA3zG+h"
+    subTotal="43824.69"
+    descuento="0"
+    total="50398.39">
+ 
+  <Emisor rfc="FJC780315E91"
+    nombre="FABRICA DE JABON LA CORONA, S.A. DE C.V.">
+ 
+    <DomicilioFiscal calle="CARLOS B. ZETINA"
+    noExterior="80"
+    colonia="INDUSTRIAL XALOSTOC"
+    localidad="ECATEPEC DE MORELOS"
+    municipio="ECATEPEC"
+    estado="MEXICO"
+    pais="MEXICO"
+    codigoPostal="55348"/>
+ 
+    <ExpedidoEn calle="CARLOS B.ZETINA NO.80"
+    localidad="XALOSTOC, EDO. DE MEXICO"
+    municipio="XALOSTOC, EDO. DE MEXICO"
+    estado="EDO. DE MEXICO"
+    pais="MEXICO"
+    codigoPostal="55348"/>
+ 
+  </Emisor>
+ 
+  <Receptor rfc="NWM9709244W4"
+    nombre="NUEVA WAL-MART DE MEXICO SRL DE CV">
+ 
+    <Domicilio calle="NEXTENGO"
+    noExterior="78"
+    colonia="STA. CRUZ ACAYUCAN"
+    localidad="AZCAPOTZALCO"
+    municipio="AZCAPOTZALCO"
+    estado="DISTRITO FEDERAL"
+    pais="MEXICO"
+    codigoPostal="2770"/>
+ 
+  </Receptor>
+ 
+  <Conceptos>
+ 
+    <Concepto cantidad="22"
+    descripcion="TEPEYAC 25P 400 G C/ENV"
+    valorUnitario="110.97"
+    importe="2441.34"/>
+ 
+    <Concepto cantidad="11"
+    descripcion="ZOTE AZUL 25P 400 G."
+    valorUnitario="110.97"
+    importe="1220.67"/>
+ 
+    <Concepto cantidad="22"
+    descripcion="ZOTE BCO. 25P 400 G"
+    valorUnitario="110.97"
+    importe="2441.34"/>
+ 
+    <Concepto cantidad="7"
+    descripcion="ZOTE BCO. 50P 200 G"
+    valorUnitario="110.97"
+    importe="776.79"/>
+ 
+    <Concepto cantidad="44"
+    descripcion="ZOTE ROSA 25P 400 G"
+    valorUnitario="110.97"
+    importe="4882.68"/>
+ 
+    <Concepto cantidad="6"
+    descripcion="ZOTE ROSA 50P 200 G"
+    valorUnitario="110.97"
+    importe="665.82"/>
+ 
+    <Concepto cantidad="12"
+    descripcion="ROMA 4P 5 KGS"
+    valorUnitario="218.34"
+    importe="2620.08"/>
+ 
+    <Concepto cantidad="24"
+    descripcion="ROMA 10P 2 KGS"
+    valorUnitario="219.74"
+    importe="5273.64"/>
+ 
+    <Concepto cantidad="120"
+    descripcion="ROMA 10P 1 KG"
+    valorUnitario="111.29"
+    importe="13354.20"/>
+ 
+    <Concepto cantidad="12"
+    descripcion="FOCA 10P 2 KGS"
+    valorUnitario="233.87"
+    importe="2806.38"/>
+ 
+    <Concepto cantidad="10"
+    descripcion="BLANCA NIEVES 10P 2 KGS"
+    valorUnitario="201.47"
+    importe="2014.65"/>
+ 
+    <Concepto cantidad="40"
+    descripcion="BLANCA NIEVES 10P 1 KG"
+    valorUnitario="102.15"
+    importe="4086.00"/>
+ 
+    <Concepto cantidad="5"
+    descripcion="BRILOZA 10P 1 KG"
+    valorUnitario="102.15"
+    importe="510.75"/>
+ 
+    <Concepto cantidad="6"
+    descripcion="FOCA 12B 1LT"
+    valorUnitario="121.73"
+    importe="730.35"/>
+ 
+  </Conceptos>
+ 
+  <Impuestos totalImpuestosTrasladados="6573.70">
+ 
+    <Traslados>
+ 
+      <Traslado impuesto="IVA"
+    tasa="15.00"
+    importe="6573.70"/>
+ 
+    </Traslados>
+ 
+  </Impuestos>
+ 
+</Comprobante>
