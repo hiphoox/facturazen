@@ -1,4 +1,4 @@
-package factura.zen
+package mx.factzen
 
 import grails.test.*
 

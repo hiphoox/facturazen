@@ -2,6 +2,7 @@ package com.factzen.core;
 
 import java.io.InputStream;
 import java.security.PrivateKey;
+import java.security.PublicKey;
 
 import javax.security.cert.X509Certificate;
 
@@ -22,6 +23,12 @@ public interface Crypto {
 	 * @return Una llave privada RSA.
 	 */
 	public PrivateKey importaFIEL(InputStream stream, String password);
+
+	/** Importa la FIEL de un usuario, similar a {@link #importaFIEL(InputStream, String)}
+	 * @param bytea El contenido del archivo PKCS8.
+	 * @param password El password con el cual fue cifrada la llave privada.
+	 * @return Una llave privada RSA. */
+	public PrivateKey importaFIEL(byte[] bytea, String password);
 
 	/** Genera la cadena original de una factura. Esta es necesaria para el sello digital.
 	 * @param factura La factura cuya cadena se debe generar.
@@ -50,5 +57,11 @@ public interface Crypto {
 	 * @param sello El sello digital, codificado en Base 64.
 	 * @param cert El certificado cuya llave publica se utiliza para verificar el sello. */
 	public boolean verificaFirma(String cadenaOriginal, String sello, X509Certificate cert);
+
+	/** Devuelve true si la llave privada corresponde a la llave publica del certificado. */
+	public boolean match(PrivateKey fiel, X509Certificate cert);
+
+	/** Descifra el token usando la llave publica especificada; devuelve el token descifrado, como cadena. */
+	public String descifraToken(String token, PublicKey key);
 
 }

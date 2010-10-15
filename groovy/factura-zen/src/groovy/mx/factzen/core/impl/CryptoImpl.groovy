@@ -1,22 +1,24 @@
 package com.factzen.core.impl
-;
 
-import java.io.StringWriter;
-import java.security.PrivateKey;
-import java.security.Signature;
+import java.io.StringWriter
+import java.security.PrivateKey
+import java.security.PublicKey;
+import java.security.Signature
+import java.util.Arrays
 
-import javax.security.cert.X509Certificate;
-import javax.xml.transform.Source;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.sax.SAXSource;
-import javax.xml.transform.stream.StreamResult;
+import javax.crypto.Cipher;
+import javax.security.cert.X509Certificate
+import javax.xml.transform.Source
+import javax.xml.transform.Transformer
+import javax.xml.transform.TransformerFactory
+import javax.xml.transform.sax.SAXSource
+import javax.xml.transform.stream.StreamResult
 
-import org.apache.commons.ssl.Base64;
-import org.apache.commons.ssl.PKCS8Key;
-import org.xml.sax.InputSource;
+import org.apache.commons.ssl.Base64
+import org.apache.commons.ssl.PKCS8Key
+import org.xml.sax.InputSource
 
-import com.factzen.core.Crypto;
+import com.factzen.core.Crypto
 
 import mx.gob.sat.cfd.x2.ComprobanteDocument
 
@@ -30,13 +32,15 @@ import mx.gob.sat.cfd.x2.ComprobanteDocument
 public class CryptoImpl implements Crypto {
 
 	private Transformer xform
-	private Signature rsa = Signature.getInstance("MD5withRSA");
+	private Signature rsaSign = Signature.getInstance("MD5withRSA")
+	private Cipher rsa = Cipher.getInstance("RSA")
 
 	/** Fija la ruta al archivo XSLT para generar la cadena origina. Se busca dentro del classpath. */
 	void setXsltPath(String value) {
 		InputStream is = getClass().getResourceAsStream(value)
 		if (is) {
-			xform = TransformerFactory.newInstance().newTransformer(new SAXSource(new InputSource(new ByteArrayInputStream(is.getBytes()))))
+			xform = TransformerFactory.newInstance().newTransformer(
+				new SAXSource(new InputSource(new ByteArrayInputStream(is.getBytes()))))
 			is.close()
 		} else {
 			throw new IllegalArgumentException("No encuentro el recurso ${value} dentro del classpath")
@@ -45,15 +49,20 @@ public class CryptoImpl implements Crypto {
 
 	PrivateKey importaFIEL(InputStream stream, String password) {
 		PKCS8Key pk8 = new PKCS8Key(stream, password.toCharArray())
-		stream.close()
-		pk8.getPrivateKey()
+		pk8.privateKey
+	}
+
+	PrivateKey importaFIEL(byte[] bytea, String password) {
+		PKCS8Key pk8 = new PKCS8Key(bytea, password)
+		pk8.privateKey
 	}
 
 	/** Genera la cadena original de una factura, utilizando el XSLT provisto por el SAT. */
 	String generaCadenaOriginal(ComprobanteDocument factura) {
 		//Generamos la cadena original a partir de la factura con el XSLT del SAT
 		StringWriter writer = new StringWriter()
-		xform.transform(new SAXSource(new InputSource(new StringReader(factura.toString()))), new StreamResult(writer))
+		xform.transform(new SAXSource(new InputSource(
+			new StringReader(factura.toString()))), new StreamResult(writer))
 		return writer.getBuffer().toString()
 	}
 
@@ -62,9 +71,9 @@ public class CryptoImpl implements Crypto {
 	void firmaFactura(ComprobanteDocument doc, PrivateKey fiel, X509Certificate cert, boolean incluyeCert) {
 		String cadenaOriginal = generaCadenaOriginal(doc)
 		ComprobanteDocument.Comprobante factura = doc.comprobante;
-		rsa.initSign(fiel)
-		rsa.update(cadenaOriginal.getBytes())
-		factura.sello = Base64.encodeBase64String(rsa.sign()).split().join("")
+		rsaSign.initSign(fiel)
+		rsaSign.update(cadenaOriginal.getBytes())
+		factura.sello = Base64.encodeBase64String(rsaSign.sign()).split().join("")
 		factura.noCertificado = new String(cert.getSerialNumber().toByteArray())
 		if (incluyeCert) {
 			factura.certificado = Base64.encodeBase64String(cert.getEncoded()).split().join("")
@@ -89,9 +98,27 @@ public class CryptoImpl implements Crypto {
 	}
 
 	boolean verificaFirma(String cadenaOriginal, String sello, X509Certificate cert) {
-		rsa.initVerify(cert.publicKey)
-		rsa.update(cadenaOriginal.getBytes())
-		return rsa.verify(Base64.decodeBase64(sello))
+		rsaSign.initVerify(cert.publicKey)
+		rsaSign.update(cadenaOriginal.getBytes())
+		return rsaSign.verify(Base64.decodeBase64(sello))
+	}
+
+	boolean match(PrivateKey fiel, X509Certificate cert) {
+		byte[] block = new byte[64]
+		Arrays.fill(block, 0)
+		rsaSign.initSign(fiel)
+		rsaSign.update(block)
+		byte[] b2 = rsaSign.sign()
+		rsaSign.initVerify(cert.publicKey)
+		rsaSign.update(block)
+		rsaSign.verify(b2)
+	}
+
+	String descifraToken(String token, PublicKey key) {
+		rsa.init(Cipher.ENCRYPT_MODE, key)
+		byte[] raw = Base64.decodeBase64(token)
+		raw = rsa.doFinal(raw)
+		new String(raw)
 	}
 
 }

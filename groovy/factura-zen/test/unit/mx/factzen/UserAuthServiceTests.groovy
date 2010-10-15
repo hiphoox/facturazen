@@ -1,8 +1,8 @@
-package factura.zen
+package mx.factzen
 
 import grails.test.*
 
-class UsuarioControllerTests extends ControllerUnitTestCase {
+class UserAuthServiceTests extends GrailsUnitTestCase {
     protected void setUp() {
         super.setUp()
     }
